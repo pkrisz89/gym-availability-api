@@ -1,0 +1,16 @@
+{
+  "env": {
+    "jest/globals": true,
+    "node": true,
+    "commonjs": true
+  },
+  "plugins": ["import", "jest"],
+  "extends": ["eslint:recommended", "airbnb-base", "plugin:jest/recommended"],
+  "rules": {
+    "indent": 0,
+    "linebreak-style": ["error", "unix"],
+    "quotes": 0,
+    "semi": 0,
+    "unnecessary-semicolon": 0
+  }
+}

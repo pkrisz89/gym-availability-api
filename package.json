@@ -1,0 +1,41 @@
+{
+  "name": "gym-availability",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "lint": "eslint ./**",
+    "test": "jest --colors",
+    "test:watch": "jest --watchAll --colors",
+    "coverage": "jest --collectCoverageFrom=*/**.js --coverage"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "eslint-config": "^0.3.0",
+    "express": "^4.16.4",
+    "moment": "^2.22.2",
+    "momentjs": "^2.0.0",
+    "mongodb": "^3.1.9",
+    "node-cron": "^2.0.3",
+    "node-horseman": "^3.3.0",
+    "phantomjs": "^2.1.7"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "eslint": "^5.10.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^22.1.2",
+    "eslint-plugin-prettier": "^3.0.0",
+    "expect": "^23.6.0",
+    "jest": "^23.6.0",
+    "lolex": "^3.0.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.6",
+    "prettier": "^1.15.3"
+  }
+}
