@@ -4,10 +4,11 @@ class Memoize {
   constructor() {
     this.cache = {};
     this.getResult = this.getResult.bind(this);
+    this.memoize = this.memoize.bind(this);
   }
 
   static setExpiry() {
-    return moment().set("date", 1);
+    return moment().add(1, "d");
   }
 
   isExpired(functionName) {
@@ -31,6 +32,7 @@ class Memoize {
     if (!this.cache || !this.cache[fn.name] || this.isExpired(fn.name)) {
       await this.memoize(fn);
     }
+
     return this.cache[fn.name].result;
   }
 
