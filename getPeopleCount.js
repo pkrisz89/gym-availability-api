@@ -14,6 +14,9 @@ module.exports = () => {
     .text("span.heading.heading--level3.secondary-color.margin-none")
     .then((res) => {
       horseman.close();
+      if (!res) {
+        throw Error("No response");
+      }
       return Number(res.replace(/\D/g, ""));
     })
     .catch(err => console.log(err));
