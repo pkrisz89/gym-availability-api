@@ -4,11 +4,19 @@
     <title>Gym availability</title>
   </head>
   <body>
-    <div id="chart"></div>
-    <ul>
-      <% data.forEach(item => { %>
-           <li>Date:<%=item.date%>  People:<%= item.count %></li> 
-      <% }) %>
-    </ul>
+    <div style="display: flex; justify-content: space-between;">
+    <% const days = Object.keys(data)  %>
+    <% days.forEach(day => { %>
+      <div style="flex: 0 0 15%;">
+        <% const hours = Object.keys(data[day]) %>
+        <h4><%= day %></h4>
+        <ul>
+          <% hours.forEach(hour => { %>
+            <li> <b><%= hour %></b> <%=data[day][hour] %></li>
+          <% }) %>
+        </ul>
+	</div>
+    <% })  %>
+    </div>
   </body>
 </html>

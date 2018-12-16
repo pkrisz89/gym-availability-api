@@ -8,7 +8,9 @@ class Memoize {
   }
 
   static setExpiry() {
-    return moment().add(1, "d");
+    return moment()
+      .add(1, "d")
+      .format("YYYY-MM-DD");
   }
 
   isExpired(functionName) {
@@ -29,7 +31,7 @@ class Memoize {
   }
 
   async getResult(fn) {
-    if (!this.cache || !this.cache[fn.name] || this.isExpired(fn.name)) {
+    if (!this.cache[fn.name] || this.isExpired(fn.name)) {
       await this.memoize(fn);
     }
 

@@ -1,11 +1,11 @@
 const cron = require("node-cron");
 const express = require("express");
-const moment = require("moment");
 const getPeopleCount = require("./getPeopleCount");
 const saveData = require("./saveData");
 const getAllData = require("./getAllData");
-const { getResult } = require("./memoize");
+const Memoize = require("./memoize");
 const recursiveCall = require("./recursiveCall");
+const GetDailyAverages = require("./getDailyAverages");
 
 const app = express();
 app.set("view engine", "ejs");
@@ -18,12 +18,12 @@ cron.schedule("0,15,30,45 * * * *", async () => {
   await saveData(data);
 });
 
+// TODO:Clear the db every 1st of month...
+
 app.get("/", async (req, res) => {
-  const data = await getResult(getAllData);
-  const formatted = data.map(({ date, count }) => ({
-    date: moment(date).format("DD/MM/YYYY HH:mm"),
-    count,
-  }));
+  const data = await Memoize.getResult(getAllData);
+  const formatted = await GetDailyAverages.getResult(data);
+  console.log(formatted);
   res.render("resultPage", { data: formatted });
 });
 

@@ -18,6 +18,5 @@ module.exports = () => {
         throw Error("No response");
       }
       return Number(res.replace(/\D/g, ""));
-    })
-    .catch(err => console.log(err));
+    });
 };
